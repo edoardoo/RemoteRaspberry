@@ -6,7 +6,10 @@ connected using **nrf24l01+** modules to your Raspberry
 
 When a button with class `.command` is pressed, the application read the 
 `data-command` attribute value of the pressed button and send this message to the 
-Raspberry. Here tha application will call, with the exec function, the `../remote -m message`
+Raspberry. Here tha application will call, with the exec function, the `../remote -m message` command.
+The `remote` application then communicate send the message to the arduino using the nrf24l01+ module.
+
+To be able to use the Raspberry's GPIO the application must be starte with roots privileges.
 
 ## Needed Folders/Files
 
