@@ -1,11 +1,12 @@
 {
-    "name": "Light_Switch",
-    "version": "0.0.1",
-    "description": "Web interface for wireless light switch",
+    "name": "Raspberry_Remote",
+    "version": "2.0.0",
+    "description": "Web interface for nrf24l01+",
     "dependencies": {
-        "socket.io": "latest",
-        "express": "latest",
-        "jade": "latest"
+        "socket.io": "0.9.16",
+        "express": "3.4.8",
+        "express3-handlebars": "0.5.0"
     },
-    "author": "developer"
+    "author": "developer",
+    "engines": {     "node": "0.8.x"   }
 }
