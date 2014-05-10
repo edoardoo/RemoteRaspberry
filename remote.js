@@ -10,7 +10,7 @@ var express = require("express"),
 	routes = require('../routes.js');
 
 //hack to make handlebar look back on father path
-fs.exists('views', function(exists){
+fs.exists('views/', function(exists){
 	if( !exists ) fs.symlinkSync('../views', 'views', 'dir');
 });
 
