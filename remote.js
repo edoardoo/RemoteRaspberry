@@ -1,31 +1,34 @@
 //
-//Edoardo Odorico and Lorenzo Farnararo , hack.lenotta.com
+// Edoardo Odorico , hack.lenotta.com
 // CC-BY-SA
 //
 //define some dependencies
 var express = require("express"),
 	exphbs = require("express3-handlebars"),
-	exec = require('child_process');
+	exec = require('child_process'),
+	fs = require('fs'), 
+	routes = require('../routes.js');
 
+//hack to make handlebar look back on father path
+fs.exists('views', function(exists){
+	if( !exists ) fs.symlinkSync('../views', 'views', 'dir');
+});
+
+hbs = exphbs.create({ defaultLayout: 'main' });
 
 var app = express();
+
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 //open the socket and listen to 3700 port
 var port = 3700;
 var io = require('socket.io').listen(app.listen(port));
 
-
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
-app.set('view engine', 'handlebars');
 app.enable('view cache');
 
+//define the routes from the external file
+routes.define(app);
 
-app.get("/", function(req, res){
-	res.render("light");
-});
-
-app.get('/gate', function (req, res) {
-    res.render('gate');
-});
 
 function sendMessage(message, socket){
 	exec.execFile('../remote',
