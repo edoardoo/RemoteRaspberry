@@ -18,16 +18,4 @@ Both of them must be placed on the parent directory of the application.
 
 The layout templating is realized using [express3-handlebars](https://github.com/ericf/express3-handlebars), so if you have any doubt on how to implement it have a look at its repository.
 
-~
-|
-|- yourProject
-|		|
-|		|-RaspberryRemote
-|		|
-|		|-routes.js
-|		|-views/
-|		|	|
-|		|	|-genericView.handlebars
-|		|	|-layouts/
-|		|	|	|
-|		|	|	|-main.handlebars
+![alt text](https://raw.githubusercontent.com/edoardoo/RemoteRaspberry/screenshot/pathStructure.png "Path Folders Structure")
