@@ -14,23 +14,38 @@ window.onload = function() {
 
 			element.style.background = "";
 	}
-
+	Element.prototype.hasClass = function(className) {
+    	return this.className && new RegExp("(^|\\s)" + className + "(\\s|$)").test(this.className);
+	};
 
 	[].forEach.call(commands, function(item){
 		
 		item.onclick = function() {
-			var action = item.attributes['data-command'].value;
+			var action = item.attributes['data-command'].value ;
+
+			var toggleEnabled = item.hasClass('toggle');
 			//on click send the message
 			socket.emit('send', { message: action });
+			
 			socket.on("callbackButton", function(data){
 				if(data.message.indexOf("received") > -1 && action == data.operation ){
 					
 					item.style.background = confirmationColor;
-			
+
+					if(toggleEnabled){
+						var toggleValue = item.attributes['data-toggled'].value == 'true';
+						toggleValue = !toggleValue;
+						item.attributes['data-toggled'].value = toggleValue;
+					}
+					
 					setTimeout(function(){resetBackground(item) }, 500);
 				}
 			}); 
 		};
+
+		if (item.hasClass('toggle')){
+			// socket.emit('send', { message: action });
+		}
 	});
 
 
