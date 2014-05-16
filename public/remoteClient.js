@@ -14,6 +14,7 @@ window.onload = function() {
 
 			element.style.background = "";
 	}
+	
 	Element.prototype.hasClass = function(className) {
     	return this.className && new RegExp("(^|\\s)" + className + "(\\s|$)").test(this.className);
 	};
@@ -37,6 +38,9 @@ window.onload = function() {
 						toggleValue = !toggleValue;
 						item.attributes['data-toggled'].value = toggleValue;
 					}
+
+					var state = data.message.split('Got response ')[1].split(',')[0];
+					item.attributes['data-state'].value = state;
 					
 					setTimeout(function(){resetBackground(item) }, 500);
 				}

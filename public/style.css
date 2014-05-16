@@ -9,3 +9,7 @@ body *{
 .col-md-4{
 	padding: 15px;
 }
+
+.command[data-state="0"] {
+	opacity: .5;
+}
