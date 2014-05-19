@@ -15,7 +15,7 @@ window.onload = function() {
 			element.style.background = "";
 	}
 	function setState(itemField, state){
-		itemField = state == 1 ? true : false;		
+		itemField = state == 1 ? "true" : "false";		
 
 	}
 	
@@ -26,16 +26,16 @@ window.onload = function() {
 	[].forEach.call(commands, function(item){
 
 		var id = item.attributes['data-id'].value;
-		var toggleState = item.attributes['data-toggleState'];	
+		var togglestate = item.attributes['data-togglestate'];	
 
 
-		if( toggleState != undefined){
+		if( togglestate != undefined){
 			var messageState = id+''+2;
 			socket.emit('send', { message: messageState });
 			socket.on("callbackButton", function(data){
 				if(data.message.indexOf("received") > -1 ){		
 
-					setState(toggleState.value, data.state);
+					setState(togglestate.value, data.state);
 				}
 			}); 
 
@@ -44,8 +44,8 @@ window.onload = function() {
 			// var action = item.attributes['data-command'].value ;
 
 
-			if(toggleState != undefined){
-				var action = toggleState.value == true ? 1 : 0 ;	
+			if(togglestate != undefined){
+				var action = togglestate.value == true ? 1 : 0 ;	
 
 			}else{
 				var action = item.attributes['data-command'].value;
@@ -61,7 +61,7 @@ window.onload = function() {
 				if(data.message.indexOf("received") > -1 ){
 					
 					item.style.background = confirmationColor;
-					setState(toggleState.value, data.state);		
+					setState(togglestate.value, data.state);		
 					setTimeout(function(){resetBackground(item) }, 500);
 				}
 			}); 
