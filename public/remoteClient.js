@@ -9,6 +9,7 @@ window.onload = function() {
 
 	var commands = document.getElementsByClassName("command");
 	var confirmationColor = "#8BCE9D";
+	var errorColor = "#c0392b";
 
 	function resetBackground(element){
 
@@ -42,7 +43,7 @@ window.onload = function() {
 		}
 		item.onclick = function() {
 			// var action = item.attributes['data-command'].value ;
-
+			animations[item.id].turnOn();
 
 			if(togglestate != undefined){
 				var action = togglestate.value == "true" ? 0 : 1 ;	
@@ -58,12 +59,18 @@ window.onload = function() {
 
 			socket.on("callbackButton", function(data){
 				if(data.message.indexOf("received") > -1 ){
-					
-					item.style.background = confirmationColor;
+					animations[item.id].toggleMessage(confirmationColor);					
 					setState(togglestate, data.state);		
 					setTimeout(function(){resetBackground(item) }, 500);
 				}
-			}); 
+				animations[item.id].turnOff();
+			});
+			socket.on("callbackError", function(data){
+					console.log(data.error);
+					animations[item.id].toggleMessage(errorColor);
+		
+					animations[item.id].turnOff();
+			});
 		};
 
 	});

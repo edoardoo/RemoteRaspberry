@@ -47,9 +47,18 @@ function sendMessage(message, socket){
 
 							});
 					}
+					
 
 					if (error !== null) {
 						console.log('exec error: ' + error);
+					
+						socket.emit(
+							"callbackError", 
+							{ 
+								error: error 
+
+							});
+					
 					}
 				});
 }

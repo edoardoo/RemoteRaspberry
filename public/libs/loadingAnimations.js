@@ -81,6 +81,15 @@ function LoadingAnimation(e) {
 		}	
 
 	}
+	this.turnOff = function(e){
+		self.running = false;
+		self.circleCanvas.css({'transform':'scale(0.5)'});
+	}
+	this.turnOn = function(e){
+		self.running = true;
+		self.circleCanvas.css({'transform':'scale(1)'});
+		self.animate( 2000, BezierEasing(0.42, 0.0, 0.58, 1.0));
+	}
 	this.toggleMessage = function( color ){
 
 		var messageCircle = $(self.element).find('.message');
@@ -136,6 +145,3 @@ function loadingAnimationBootstrap(){
 }
 
 
-$(selector).on("click", function(){
-	animations[$(this).attr('id')].toggleLoading();
-});

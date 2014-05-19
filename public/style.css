@@ -17,6 +17,9 @@ body *{
 .col-md-4{
 	padding: 15px;
 }
+[data-togglestate="false"] img{
+	opacity:.45;
+}
 
 .command[data-state="0"] {
 	opacity: .5;
