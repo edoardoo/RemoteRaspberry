@@ -1,18 +1,18 @@
 body, html{
-  background: #333;
-  color: #eee;
+	background: #333;
+	color: #eee;
 }
 
 
 body *{
-	
-	
-	
+
+
+
 	font-family: "HelveticaNeueLight", "HelveticaNeue-Light", "Helvetica Neue Light", "HelveticaNeue", "Helvetica Neue", 'TeXGyreHerosRegular', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif; font-weight:300;   font-stretch:normal;
 	font-size: 30px;
 	color: #ffffff;
-	 -webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 .col-md-4{
 	padding: 15px;
@@ -26,12 +26,12 @@ body *{
 }
 .transitions{
 	-webkit-transition: all .7s ease-in-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
-					transition: all .7s ease-in-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
+	transition: all .7s ease-in-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
 	-webkit-transform: translateZ(0);
-	 -moz-transform: translateZ(0);
-	 -ms-transform: translateZ(0);
-	 -o-transform: translateZ(0);
-	 transform: translateZ(0);
+	-moz-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	-o-transform: translateZ(0);
+	transform: translateZ(0);
 	backface-visibility: hidden;
 	perspective: 1000;
 	-webkit-backface-visibility: hidden;
@@ -96,8 +96,6 @@ button{
 	left: 0;
 	height: 100%;
 	width: 100%;
-	-webkit-transform: scale(0.9);
-	transform: scale(0.9);
 
 }
 .gravatar svg{
@@ -134,4 +132,15 @@ button{
 	height: 100%;
 	width: 100%;
 }
-
+.imgContainer{
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background: black;
+	border-radius: 50%;
+	z-index: 12;
+	-webkit-transform: scale(0.9);
+	transform: scale(0.9);
+}

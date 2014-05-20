@@ -60,7 +60,9 @@ window.onload = function() {
 			socket.on("callbackButton", function(data){
 				if(data.message.indexOf("received") > -1 ){
 					animations[item.id].toggleMessage(confirmationColor);					
-					setState(togglestate, data.state);		
+					if(togglestate != undefined){
+						setState(togglestate, data.state);		
+					}
 					setTimeout(function(){resetBackground(item) }, 500);
 				}
 				animations[item.id].turnOff();
