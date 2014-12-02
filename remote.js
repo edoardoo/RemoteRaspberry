@@ -36,8 +36,8 @@ function sendMessage(message, socket){
 				function (error, stdout, stderr) {
 					console.log('stdout: ' + stdout);
 					console.log('stderr: ' + stderr);
-					if( stdout.indexOf("Got response") > -1 ){
-						var state = stdout.split('Got response ')[1].split(',')[0];
+					if( stdout.indexOf("Got this response") > -1 ){
+						var state = stdout.split('Got this response ')[1].split('.')[0];
 						socket.emit(
 							"callbackButton", 
 							{ 
